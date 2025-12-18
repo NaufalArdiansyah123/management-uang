@@ -54,7 +54,8 @@ export default function RegisterPage() {
       router.push('/dashboard')
     } catch (e) {
       setLoading(false)
-      setError(e?.message ?? String(e))
+      const msg = e instanceof Error ? e.message : String(e)
+      setError(msg)
     }
   }
 
